@@ -1,0 +1,21 @@
+Recovery Time Objective (RTO) for singl AZ
+
+RDS is set up as read replica in another AZ. 
+IF for reason Primary AZ is not available, we can Promote the read replica.
+Direct database traffic to the promoted DB instance.
+Create a replacement read replica with the promoted DB instance as its source. 
+An RTO of one hour for this incident would be reasonable.
+
+RTO for a single Region outage: 
+We can use read replica from another region to become the primary instance.
+A replica lag can impact your recovery. Replica lag can vary based on the network latency between the source and destination Regions. It can also be affected by the amount of traffic that is being replicated.
+RTO of 45-8 hours would be reasonable
+
+Minimum RPO for a single AZ outage
+since we have read replica the RPO should be lesser. 
+Depending upon the RDS:describe-db-instances:LatestRestorableTime we can determine the RPO. 
+RPO of 20-30 min would be reasonable
+
+
+Minimum RPO for a single Region outage
+This is similar to AZ. considering the network latency and other thing, RPO of 60-90 min would be suffice. 
