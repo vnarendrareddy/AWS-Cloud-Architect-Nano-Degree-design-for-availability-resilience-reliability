@@ -146,4 +146,3 @@ You will now need to “recover” the object:
 
 **SAVE** a screenshot of the modified webpage. Name your screenshot "s3_delete_revert.png"
 
-## License
